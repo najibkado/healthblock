@@ -1,0 +1,29 @@
+{% load static %}
+
+<!-- jQuery  -->
+<script src="{% static '/main/style/assets/js/jquery.min.js' %}"></script>
+<script src="{% static '/main/style/assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static '/main/style/assets/js/metismenu.min.js' %}"></script>
+<script src="{% static '/main/style/assets/js/waves.js' %}"></script>
+<script src="{% static '/main/style/assets/js/feather.min.js' %}"></script>
+<script src="{% static '/main/style/assets/js/simplebar.min.js' %}"></script>
+<script src="{% static '/main/style/assets/js/moment.js' %}"></script>
+<script src="{% static '/main/style/assets/plugins/daterangepicker/daterangepicker.js' %}"></script>
+<script src="{% static '/main/style/assets/plugins/tippy/tippy.all.min.js' %}"></script>
+
+<!-- App js -->
+<script src="{% static '/main/style/assets/js/app.js' %}"></script>
+<script src="{% static '/main/style/assets/js/jquery.core.js' %}"></script>
+
+<!-- Main js -->
+<script src="{% static '/main/style/assets/js/main.js' %}"></script>
+
+
+<script>        
+    tippy('.tippy-btn');       
+    tippy('#myElement', {
+        html: document.querySelector('#feature__html'), // DIRECT ELEMENT option
+        arrow: true,
+        animation: 'fade'
+    });
+</script>

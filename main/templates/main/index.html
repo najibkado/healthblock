@@ -1,0 +1,143 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="page-title-box">
+            <div class="row">
+                <div class="col">
+                    <h4 class="page-title">Home</h4>
+                </div><!--end col-->  
+            </div><!--end row-->                                   
+        </div><!--end page-title-box-->
+    </div><!--end col-->
+    <div class="col-sm-2"></div>
+</div><!--end row-->
+<!-- end page title end breadcrumb -->
+
+<div class="row">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-8">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-3">
+                <div class="card report-card">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col">
+                                <p class="text-dark mb-0 fw-semibold">Users</p>
+                                <h3 class="m-0">{{user_count}}</h3>
+                            </div>
+                            <div class="col-auto align-self-center">
+                                <div class="report-main-icon bg-light-alt">
+                                    <i data-feather="users" class="align-self-center text-muted icon-sm"></i>  
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end card-body--> 
+                </div><!--end card--> 
+            </div> <!--end col--> 
+            <div class="col-md-6 col-lg-3">
+                <div class="card report-card">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center">                                                
+                            <div class="col">
+                                <p class="text-dark mb-0 fw-semibold">Staffs</p>
+                                <h3 class="m-0">{{staff_count}}</h3>
+                            </div>
+                            <div class="col-auto align-self-center">
+                                <div class="report-main-icon bg-light-alt">
+                                    <i data-feather="users" class="align-self-center text-muted icon-sm"></i>  
+                                </div>
+                            </div> 
+                        </div>
+                    </div><!--end card-body--> 
+                </div><!--end card--> 
+            </div> <!--end col--> 
+            <div class="col-md-6 col-lg-3">
+                <div class="card report-card">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center">                                                
+                            <div class="col">
+                                <p class="text-dark mb-0 fw-semibold">Doctors</p>
+                                <h3 class="m-0">{{doctor_count}}</h3>
+                            </div>
+                            <div class="col-auto align-self-center">
+                                <div class="report-main-icon bg-light-alt">
+                                    <i data-feather="briefcase" class="align-self-center text-muted icon-sm"></i>  
+                                </div>
+                            </div> 
+                        </div>
+                    </div><!--end card-body--> 
+                </div><!--end card--> 
+            </div> <!--end col--> 
+            <div class="col-md-6 col-lg-3">
+                <div class="card report-card">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col">  
+                                <p class="text-dark mb-0 fw-semibold">Patients</p>                                         
+                                <h3 class="m-0">{{patient_count}}</h3>
+                            </div>
+                            <div class="col-auto align-self-center">
+                                <div class="report-main-icon bg-light-alt">
+                                    <i data-feather="activity" class="align-self-center text-muted icon-sm"></i>           
+                                </div>
+                            </div> 
+                        </div>
+                    </div><!--end card-body--> 
+                </div><!--end card--> 
+            </div> <!--end col-->                               
+        </div><!--end row-->
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">                      
+                        <h4 class="card-title">Staff Overview</h4>                      
+                    </div><!--end col-->
+                </div>  <!--end row-->                                  
+            </div><!--end card-header-->
+            <div class="card-body">
+                <div class="row">
+                        
+                    <div class="col-lg-4 ms-auto align-self-center">
+                        <ul class="list-unstyled personal-detail mb-0">
+                            <li class=""><i class="ti ti-user me-2 text-secondary font-16 align-middle"></i> <b> Name </b> : {{staff_name}}</li>
+                            <li class="mt-2"><i class="ti ti-key text-secondary font-16 align-middle me-2"></i> <b> Staff ID </b> : {{staff_username}}</li>
+                            <li class="mt-2"><i class="ti ti-key text-secondary font-16 align-middle me-2"></i> <b> Staff Number </b> : {{staff_number}}</li>
+                                               
+                        </ul>
+                       
+                    </div><!--end col-->
+
+                    <div class="col-lg-4 ms-auto align-self-center">
+                        <ul class="list-unstyled personal-detail mb-0">
+                            <li class=""><i class="ti ti-view-grid me-2 text-secondary font-16 align-middle"></i> <b> Staff job </b> : {{staff_job}}</li>
+                            <li class="mt-2"><i class="ti ti-view-grid text-secondary font-16 align-middle me-2"></i> <b> Staff Department </b> : {{staff_department}}</li>
+                            <li class="mt-2"><i class="ti ti-view-grid text-secondary font-16 align-middle me-2"></i> <b> Staff Events </b> : {{staff_event_count}}</li>
+                           
+                        </ul>  
+                    </div><!--end col-->
+
+                    <div class="col-lg-4 ms-auto align-self-center">
+                        <ul class="list-unstyled personal-detail mb-0">
+                            <li class=""><i class="ti ti-mobile me-2 text-secondary font-16 align-middle"></i> <b> Staff Phone </b> : {{staff_phone}}</li>
+                            <li class="mt-2"><i class="ti ti-email text-secondary font-16 align-middle me-2"></i> <b> Staff Email </b> : {{staff_email}}</li>
+                            <li class="mt-2"><i class="ti ti-home text-secondary font-16 align-middle me-2"></i> <b> Staff Address </b> : {{staff_address}}</li>
+                                                                
+                        </ul>  
+                    </div><!--end col-->
+               
+                </div><!--end row-->
+            </div><!--end card-body--> 
+        </div><!--end card--> 
+    </div><!--end col-->
+    <div class="col-lg-2">
+    </div>
+</div><!--end row-->
+                                               
+{% endblock %}

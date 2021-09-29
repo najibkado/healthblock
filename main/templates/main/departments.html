@@ -1,0 +1,120 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="page-title-box">
+            <div class="row">
+                <div class="col">
+                    <h4 class="page-title">Departments</h4>
+                </div><!--end col-->  
+
+
+            </div><!--end row-->                                   
+        </div><!--end page-title-box-->
+
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">                      
+                        <h4 class="card-title">Create Department</h4>                      
+                    </div><!--end col-->                                        
+                </div>  <!--end row-->                                  
+            </div><!--end card-header-->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form action="{% url 'main:departments' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-3 col-6 mb-2 mb-lg-0">
+                                        
+                                        <input type="text" name="title" class="form-control" id="pro-start-date" placeholder="Title">
+                                    </div><!--end col-->  
+                                    <div class="col-lg-6 col-6 mb-2 mb-lg-0">
+                                        
+                                        <input type="text" name="description" class="form-control" id="pro-start-date" placeholder="Description">
+                                    </div><!--end col-->  
+                                    <div class="col-lg-3 col-6 mb-2 mb-lg-0">
+                                        <button type="submit" class="btn form-control btn-soft-primary ">Create department</button> 
+                                    </div><!--end col-->   
+                                                                                           
+                                </div><!--end row-->
+                            </div><!--end form-group-->
+                            
+                        </form>  <!--end form-->
+                    </div><!--end col-->
+                </div><!--end row-->                                                                              
+            </div><!--end card-body-->
+        </div><!--end card-->
+
+    </div><!--end col-->
+    <div class="col-sm-2"></div>
+</div><!--end row-->
+<!-- end page title end breadcrumb -->
+
+
+
+<div class="row">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-8">
+
+        <hr>
+
+        <div class="row">
+            <div class="col-12">
+                    <div class="card-body">
+                        <button class="btn btn-soft-warning tippy-btn" id="myElement" data-tippy-interactive="true" data-tippy-theme="light rounded" data-tippy-arrow="true" data-tippy-size="large" data-tippy-arrowTransform="scale(2)" data-tippy-animation="fade" data-tippy-distance="15" data-tippy-interactiveBorder="20" data-local>View warning</button>
+                        <div id="feature__html" data-template>
+                            <div style="padding:20px"><img width="50" src="{% static '/main/style/assets/images/logo.png' %}" alt="" />
+                                <h5>On clicking the button <strong>Delete</strong>, It will delete the department without any confirmation.</h5>
+                            </div>
+                        </div>
+                    </div><!--end card-body-->
+        </div> <!-- end row -->
+
+        <hr>
+
+        {% for department in departments %}
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">                      
+                        <h4 class="card-title">{{department.name}}</h4>                      
+                    </div><!--end col-->
+
+                    <div class="col-auto"> 
+                            <a href="{% url 'main:department' department.id %}"><i class="las la-trash-alt text-danger font-20"></i></a>
+                            
+                    </div><!--end col-->    
+                </div>  <!--end row-->    
+            </div><!--end card-header-->
+            <div class="card-body">
+                <div class="row">
+                        
+                    <div class="col-lg-12 ms-auto align-self-center">
+                        <ul class="list-unstyled personal-detail mb-0">
+                            <li class=""><i class="ti ti-user me-2 text-secondary font-16 align-middle"></i> <b> Name </b> : {{department.name}}</li>
+                            <li class="mt-2"><i class="ti ti-key text-secondary font-16 align-middle me-2"></i> <b> Description </b> : {{department.description}}</li>
+                            <li class="mt-2"><i class="ti ti-key text-secondary font-16 align-middle me-2"></i> <b> Creation date </b> : {{department.created_at}}</li>                   
+                        </ul>
+                       
+                    </div><!--end col-->
+               
+                </div><!--end row-->
+            </div><!--end card-body--> 
+        </div><!--end card--> 
+        {% endfor %}
+    </div><!--end col-->
+    <div class="col-lg-2">
+    </div>
+</div><!--end row-->
+
+{% endblock %}

@@ -1,0 +1,18 @@
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+            <div {% if message.tags %} class="alert custom-alert custom-alert-{{ message.tags }} icon-custom-alert shadow-sm fade show d-flex justify-content-between" {% endif %} role="alert">  
+                <div class="media">
+                    <i class="la la-exclamation-triangle alert-icon text-{{ message.tags }} align-self-center font-30 me-3"></i>
+                    <div class="media-body align-self-center">
+                        <h5 class="mb-1 fw-bold mt-0">Alert</h5>
+                        <span>{{ message }}</span>
+                    </div>
+                </div>                                  
+                <button type="button" class="btn-close align-self-center" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div> 
+    {% endfor %}
+</ul>
+{% endif %}
+

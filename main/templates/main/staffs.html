@@ -1,0 +1,83 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="page-title-box">
+            <div class="row">
+                <div class="col">
+                    <h4 class="page-title">Staffs</h4>
+                </div><!--end col-->  
+            </div><!--end row-->                                   
+        </div><!--end page-title-box-->
+    </div><!--end col-->
+    <div class="col-sm-2"></div>
+</div><!--end row-->
+<!-- end page title end breadcrumb -->
+
+
+
+<div class="row">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-8">
+
+        {% for staff in staffs %}
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">                      
+                        <h4 class="card-title">{{staff.staff_name}}</h4>                      
+                    </div><!--end col-->
+
+                    <div class="col-auto"> 
+                            <!-- <a href="#"><i class="las la-pen text-secondary font-20"></i></a> -->
+                            <a href="{% url 'main:delete' staff.staff_number %}" class="delete-buddy"><i class="las la-trash-alt text-danger font-20"></i></a>
+                    </div><!--end col-->    
+                </div>  <!--end row-->    
+            </div><!--end card-header-->
+            <div class="card-body">
+                <div class="row">
+                        
+                    <div class="col-lg-4 ms-auto align-self-center">
+                        <ul class="list-unstyled personal-detail mb-0">
+                            <li class=""><i class="ti ti-user me-2 text-secondary font-16 align-middle"></i> <b> Name </b> : {{staff.staff_name}}</li>
+                            <li class="mt-2"><i class="ti ti-key text-secondary font-16 align-middle me-2"></i> <b> Staff ID </b> : {{staff.staff_username}}</li>
+                            <li class="mt-2"><i class="ti ti-key text-secondary font-16 align-middle me-2"></i> <b> Staff Number </b> : {{staff.staff_number}}</li>
+                                               
+                        </ul>
+                       
+                    </div><!--end col-->
+
+                    <div class="col-lg-4 ms-auto align-self-center">
+                        <ul class="list-unstyled personal-detail mb-0">
+                            <li class=""><i class="ti ti-view-grid me-2 text-secondary font-16 align-middle"></i> <b> Staff job </b> : {{staff.staff_job}}</li>
+                            <li class="mt-2"><i class="ti ti-view-grid text-secondary font-16 align-middle me-2"></i> <b> Staff Department </b> : {{staff.staff_department}}</li>
+                            <li class="mt-2"><i class="ti ti-view-grid text-secondary font-16 align-middle me-2"></i> <b> Staff Events </b> : {{staff.staff_event_count}}</li>
+                           
+                        </ul>  
+                    </div><!--end col-->
+
+                    <div class="col-lg-4 ms-auto align-self-center">
+                        <ul class="list-unstyled personal-detail mb-0">
+                            <li class=""><i class="ti ti-mobile me-2 text-secondary font-16 align-middle"></i> <b> Staff Phone </b> : {{staff.staff_phone}}</li>
+                            <li class="mt-2"><i class="ti ti-email text-secondary font-16 align-middle me-2"></i> <b> Staff Email </b> : {{staff.staff_email}}</li>
+                            <li class="mt-2"><i class="ti ti-home text-secondary font-16 align-middle me-2"></i> <b> Staff Address </b> : {{staff.staff_address}}</li>
+                                                                
+                        </ul>  
+                    </div><!--end col-->
+               
+                </div><!--end row-->
+            </div><!--end card-body--> 
+        </div><!--end card--> 
+        {% endfor %}
+    </div><!--end col-->
+    <div class="col-lg-2">
+    </div>
+</div><!--end row-->
+
+{% endblock %}

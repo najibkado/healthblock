@@ -1,0 +1,78 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="page-title-box">
+            <div class="row">
+                <div class="col">
+                    <h4 class="page-title"></h4>
+                </div><!--end col-->  
+            </div><!--end row-->                                   
+        </div><!--end page-title-box-->
+    </div><!--end col-->
+    <div class="col-sm-2"></div>
+</div><!--end row-->
+<!-- end page title end breadcrumb -->
+
+
+<div class="row">
+
+    <div class="col-lg-3">
+    </div>
+
+
+    <div class="col-lg-6">
+        
+        <div class="" id="exampleModalDanger" tabindex="-1" role="dialog" aria-labelledby="exampleModalDanger1" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger">
+                        <h6 class="modal-title m-0 text-white" id="exampleModalDanger1">Confirm staff deletion</h6>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div><!--end modal-header-->
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-3 text-center align-self-center">
+                                <img src="{% static '/main/style/assets/images/widgets/btc.png' %}" alt="" class="img-fluid">
+                            </div><!--end col-->
+                            <div class="col-lg-9">
+                                <h5>You are abbout to delete this user</h5>
+                                <span class="badge bg-soft-secondary">Staff services will be disabled from</span>
+                                <small class="text-muted ms-2">Deletion time</small>
+                                <ul class="mt-3 mb-0">
+                                    <li id="confirm-user">User Number: {{user_number}}</li>
+                                    <li id="confirm-user-name">User: {{user_to_delete}}</li>
+                                    <li>Deleting this staff will revoke all user access to the system. Are you sure you want to proceed?</li>
+                                </ul>
+                            </div><!--end col-->
+                        </div><!--end row-->                                                     
+                    </div><!--end modal-body-->
+                    <div class="modal-footer"> 
+                        <form action="{% url 'main:delete' user_number %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="val" value="{{user_number}}">
+                            <button type="submit" id="confirm-delete" class="btn btn-soft-danger btn-sm" data-bs-dismiss="modal">Delete staff</button>
+                        </form>                                                   
+                        
+                    </div><!--end modal-footer-->
+                </div><!--end modal-content-->
+            </div><!--end modal-dialog-->
+        </div><!--end modal-->
+              
+    </div><!--end col-->
+
+
+    <div class="col-lg-3">
+        
+    </div>
+
+</div>
+
+{% endblock %}
+
+

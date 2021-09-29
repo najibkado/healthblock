@@ -1,0 +1,168 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="page-title-box">
+            <div class="row">
+                <div class="col">
+                    <h4 class="page-title">Create staff</h4>
+                </div><!--end col-->  
+            </div><!--end row-->                                   
+        </div><!--end page-title-box-->
+    </div><!--end col-->
+    <div class="col-sm-2"></div>
+</div><!--end row-->
+<!-- end page title end breadcrumb -->
+
+
+<div class="row">
+    <div class="col-lg-2">
+    </div>
+        <div class="col-lg-8">
+                <div class="card">
+                  
+                    <div class="card-body">
+                        <form class="row g-3 needs-validation" action="{% url 'main:staff' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="col-md-4">
+                              <label for="validationCustom01" class="form-label">First name</label>
+                              <input type="text" class="form-control" id="validationCustom01" name="first-name" placeholder="Mark" required>
+                              <div class="valid-feedback">
+                                Looks good!
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <label for="validationCustom02" class="form-label">Last name</label>
+                              <input type="text" class="form-control" id="validationCustom02" name="last-name" placeholder="Otto" required>
+                              <div class="valid-feedback">
+                                Looks good!
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <label for="validationCustomUsername" class="form-label">Username</label>
+                              <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                <input type="text" class="form-control" id="validationCustomUsername" name="username" placeholder="sample" aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                  Please choose a username.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <label for="validationCustom03" class="form-label">Address</label>
+                              <input type="text" class="form-control" id="validationCustom03" name="address" placeholder="Kano, Nigeria" required>
+                              <div class="invalid-feedback">
+                                Please provide a valid city.
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom05" class="form-label">Job Title</label>
+                                <input type="text" class="form-control" id="validationCustom05" name="job" placeholder="Doctor" required>
+                                <div class="invalid-feedback">
+                                  Please provide a valid zip.
+                                </div>
+                              </div>
+                            <div class="col-md-3">
+                              <label for="validationCustom04" class="form-label">Department</label>
+                              <select class="form-select" id="validationCustom04" name="department" required>
+                                {% for department in departments %}
+                                <option value="{{department.id}}">{{department.name}}</option>
+                                {% endfor %}
+                              </select>
+                              <div class="invalid-feedback">
+                                Please select a valid state.
+                              </div>
+                            </div> 
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">Phone</label>
+                                <input type="text" class="form-control" id="validationCustom01" name="phone" placeholder="080888966020" required>
+                                <div class="valid-feedback">
+                                  Looks good!
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="validationCustom01" name="email" placeholder="sample@gmail.com" required>
+                                <div class="valid-feedback">
+                                  Looks good!
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="validationCustom01" name="password" required>
+                                <div class="valid-feedback">
+                                  Looks good!
+                                </div>
+                              </div>    
+                            <div class="col-12">
+                              <hr class="hr-dashed hr-menu">
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Privileges</h4>
+                                    </div><!--end card-header-->
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+        
+                                                <div class="form-check form-switch form-switch-secondary">
+                                                    <input class="form-check-input" name="is-doctor" type="checkbox" id="customSwitchSecondary" >
+                                                    <label class="form-check-label" for="customSwitchSecondary">Doctor privileges</label>
+                                                </div>
+        
+                                                <div class="form-check form-switch form-switch-success">
+                                                    <input class="form-check-input" name="is-it" type="checkbox" id="customSwitchSuccess" >
+                                                    <label class="form-check-label" for="customSwitchSuccess">IT staff privileges</label>
+                                                </div>
+        
+                                            </div><!--end col-->
+        
+                                            <div class="col-lg-4">
+                                                <div class="form-check form-switch form-switch-danger">
+                                                    <input class="form-check-input" name="is-receptionist" type="checkbox" id="customSwitchDanger" >
+                                                    <label class="form-check-label" for="customSwitchDanger">Receptionist privileges</label>
+                                                </div>
+        
+                                                <div class="form-check form-switch form-switch-dark">
+                                                    <input class="form-check-input" name="is-analyst" type="checkbox" id="customSwitchDark" >
+                                                    <label class="form-check-label" for="customSwitchDark">Analyst privileges</label>
+                                                </div>
+                                            </div><!--end col-->
+
+                                            <div class="col-lg-4">
+                                                <div class="form-check form-switch form-switch-danger">
+                                                    <input class="form-check-input" name="is-lab" type="checkbox" id="customSwitchDanger" >
+                                                    <label class="form-check-label" for="customSwitchDanger">Lab Technician privileges</label>
+                                                </div>
+        
+                                                <div class="form-check form-switch form-switch-dark">
+                                                    <input class="form-check-input" name="is-director" type="checkbox" id="customSwitchDark" >
+                                                    <label class="form-check-label" for="customSwitchDark">Director privileges</label>
+                                                </div>
+                                            </div><!--end col-->
+
+                                        </div><!--end row-->
+                                    </div><!--end card-body-->
+                                </div><!--end card-->  
+
+                            <hr class="hr-dashed hr-menu">
+                            </div>
+
+                            <div class="col-12">
+                              <button class="btn btn-primary" type="submit">Create staff</button>
+                            </div>
+                        </form><!--end form-->                                          
+                    </div><!--end card-body-->
+                </div><!--end card-->
+        </div><!--end col-->
+    <div class="col-lg-2">
+    </div>
+</div><!--end row-->
+
+
+{% endblock %}
